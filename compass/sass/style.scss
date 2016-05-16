@@ -1,0 +1,45 @@
+#header{
+	background-color: black;
+	position: relative;	
+}
+#header-left{
+		float: left;
+		button{
+			font-size: 25px;
+			margin-top: 15px;
+		}
+	}
+#header-right{
+	float: right;
+	font-size: 25px;
+	a{
+		float: right;
+		margin-right: 10px;
+		margin-top: 15px;
+	}
+	button{
+		font-size: 25px;
+		// margin-top: 15px;
+		margin-bottom: 15px;
+	}
+	#login{
+		margin-top: 20px;
+	}
+}
+.container{
+	margin-left: 0px;
+	margin-right: 0px;
+	width: 100%;
+}
+
+#main-photo{
+	padding-left: 0px;
+	padding-right: 0px;
+	background-image: url('../manta_ray1.jpeg');
+	background-size: cover;
+	height: 600px;
+	h1{
+		margin-top: 300px;
+		color: white;
+	}
+}

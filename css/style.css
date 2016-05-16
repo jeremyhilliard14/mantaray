@@ -1,0 +1,57 @@
+/* line 1, ../compass/sass/style.scss */
+#header {
+  background-color: black;
+  position: relative;
+}
+
+/* line 5, ../compass/sass/style.scss */
+#header-left {
+  float: left;
+}
+/* line 7, ../compass/sass/style.scss */
+#header-left button {
+  font-size: 25px;
+  margin-top: 15px;
+}
+
+/* line 12, ../compass/sass/style.scss */
+#header-right {
+  float: right;
+  font-size: 25px;
+}
+/* line 15, ../compass/sass/style.scss */
+#header-right a {
+  float: right;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+/* line 20, ../compass/sass/style.scss */
+#header-right button {
+  font-size: 25px;
+  margin-bottom: 15px;
+}
+/* line 25, ../compass/sass/style.scss */
+#header-right #login {
+  margin-top: 20px;
+}
+
+/* line 29, ../compass/sass/style.scss */
+.container {
+  margin-left: 0px;
+  margin-right: 0px;
+  width: 100%;
+}
+
+/* line 35, ../compass/sass/style.scss */
+#main-photo {
+  padding-left: 0px;
+  padding-right: 0px;
+  background-image: url("../manta_ray1.jpeg");
+  background-size: cover;
+  height: 600px;
+}
+/* line 41, ../compass/sass/style.scss */
+#main-photo h1 {
+  margin-top: 300px;
+  color: white;
+}
