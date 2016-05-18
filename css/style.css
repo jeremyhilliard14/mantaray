@@ -52,3 +52,28 @@
 #post-form #post-text {
   width: 100%;
 }
+
+/* line 48, ../compass/sass/style.scss */
+.posts {
+  background-color: #c4c4c4;
+  margin-bottom: 50px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+}
+/* line 54, ../compass/sass/style.scss */
+.posts .user {
+  font-size: 15px;
+  margin-bottom: 15px;
+  margin-left: 10px;
+  font-weight: bold;
+}
+/* line 60, ../compass/sass/style.scss */
+.posts .text {
+  margin-bottom: 15px;
+  margin-left: 10px;
+}
+/* line 64, ../compass/sass/style.scss */
+.posts .date {
+  margin-left: 10px;
+}
