@@ -1,12 +1,24 @@
-<div class="row">
-		<div id="header" class="col-sm-12" style="background-color: black; position: relative;">
-			<div id="header-left" class="col-sm-6" style="float: left; margin-top: 15px;">
-				<a href="/"><button class="btn btn-primary" style="font-size: 25px; margin-bottom: 15px;">Home</button></a>
-			</div>
-			<div id="header-right" class="col-sm-6" style="float: right; margin-top: 15px;">
-				
-				<a href="includes/register.php"><button class="btn btn-warning" style="float: right; font-size: 25px;">Register</button></a>
-				<a href="login.php" id="login" style="float: right; margin-right: 10px; font-size: 25px;">Login</a>
-			</div>
-		</div>
-	</div>
+
+
+<body>
+  <nav id="nav" class="navbar navbar-default">
+    <div class="container-fluid">
+      <div id="home" class="navbar-header">
+        <a class="navbar-brand" href="/">Home</a>
+      </div>
+      <ul id="options" class="nav navbar-nav">
+        
+        <?php 
+          if(isset($_SESSION['username'])){
+            print '<li id="welcome">Welcome '.$_SESSION['username'].'</li>';
+            print '<li id="post"><a href="post.php">Make a post</a></li>';
+            print '<li id="logout"><a href="logout.php">Logout</a></li>';
+          }else{
+            print '<li id="register"><a href="register.php">Register</a></li>';
+            print '<li id="login"><a href="login.php">Login</a></li>';
+          }        
+        ?>
+        
+      </ul>
+    </div>
+  </nav>

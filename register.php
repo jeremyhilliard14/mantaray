@@ -1,7 +1,11 @@
 <?php
-
-	require_once 'head.php';
-	require_once 'header.php';
+	
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+	session_start();
+	require_once 'includes/head.php';
+	require_once 'includes/header.php';
 
 ?>
 
@@ -32,7 +36,7 @@
 			    <input type="password" class="form-control" id="password2" placeholder="password" name="password2">
 		  	</div>
 		  	<div class="form-group text-center">
-		  		<button type="submit" class="btn btn-primary text-center">Submit</button>
+		  		<button type="submit" class="btn btn-primary text-center">Register</button>
 		  	</div>
 		</form>
 	</div>
