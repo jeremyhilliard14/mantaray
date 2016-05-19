@@ -50,30 +50,63 @@
 }
 /* line 42, ../compass/sass/style.scss */
 #post-form #post-text {
-  width: 100%;
+  display: block;
+  width: 50%;
 }
 
 /* line 48, ../compass/sass/style.scss */
 .posts {
-  background-color: #c4c4c4;
-  margin-bottom: 50px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  border-radius: 10px;
+  margin: 20px;
+  background: #c4c4c4;
+  padding: 20px 10px;
+  border-radius: 5px;
+  font-size: 20px;
+  min-height: 150px;
 }
-/* line 54, ../compass/sass/style.scss */
-.posts .user {
+/* line 55, ../compass/sass/style.scss */
+.posts .left-container {
+  width: 70%;
+  float: left;
+  overflow: hidden;
+  font-size: 15px;
+}
+/* line 60, ../compass/sass/style.scss */
+.posts .left-container .user {
   font-size: 15px;
   margin-bottom: 15px;
   margin-left: 10px;
   font-weight: bold;
+  float: left;
 }
-/* line 60, ../compass/sass/style.scss */
-.posts .text {
+/* line 67, ../compass/sass/style.scss */
+.posts .left-container .text {
   margin-bottom: 15px;
   margin-left: 10px;
+  clear: left;
+  float: left;
 }
-/* line 64, ../compass/sass/style.scss */
-.posts .date {
+/* line 73, ../compass/sass/style.scss */
+.posts .left-container .date {
   margin-left: 10px;
+  clear: left;
+  float: left;
+}
+/* line 80, ../compass/sass/style.scss */
+.posts .right-container {
+  width: 30%;
+  float: left;
+  height: 40px;
+}
+/* line 84, ../compass/sass/style.scss */
+.posts .right-container .arrow-up, .posts .right-container .arrow-down, .posts .right-container .vote-count {
+  text-align: right;
+  margin-right: 40px;
+}
+
+/* line 92, ../compass/sass/style.scss */
+#thanks {
+  background-image: url("../flying_ray1.jpg");
+  background-size: 100% 100%;
+  height: 500px;
+  color: white;
 }
