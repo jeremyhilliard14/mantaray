@@ -3,16 +3,16 @@ var mantaApp = angular.module('mantaApp', []);
 mantaApp.controller('mantaController', function($scope, $http){
 
 
-	$scope.follow = function(username){
-		console.log(username);
+	$scope.follow = function(username, followMethod){
 		$http.post('process_follow.php', {
-			poster: username
+			poster: username,
+			followMethod: followMethod
 		}).then(function successCallback(response){
 			console.log(response.data);
-			// $scope.voteTotal = JSON.parse(response.data);
+			location.reload();
 		}, function errorCallback(response){
 			console.log(response);
-		});
+		});		
 	}
 
 

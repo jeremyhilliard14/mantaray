@@ -10,39 +10,48 @@
 	DB::$dbName = 'mantaray';
 	DB::$host = '127.0.0.1';
 
-	$following_array = DB::query("SELECT poster FROM following WHERE follower = %s", 
-		$_SESSION['username']);
-
-	$not_following_array = DB::query("SELECT * FROM users 
-		WHERE username != %s AND username NOT IN ($following_array)", $_SESSION['username']);
-
-	print "<pre>";
-	print_r($all_users_array);
-	print "</pre>";
-	exit;
-
+	//See Meekrodb for queryOneColumn syntax. It will remove the array inside array and just return a single field (parameter one) in an array. This will give us a list of arrays
+	$following_array = DB::queryOneColumn('poster', "SELECT poster FROM following WHERE follower = %s", $_SESSION['username']);
+	//Implode will take an array and turn it into a string. It will separate the elements in the array by whatever parameter comes first. In this example, it will break up the array by commas. Explode does exactly the opposite. It takes a string and turns it into an array. 
+	//We need a string of items to pass to our "NOT IN" query. With the help of implode, we have it.
+	$people_user_is_following_as_string = implode("','",$following_array);
+	//Now, we can write a query that will get all the usernames in the user table that are not in the "people_user_is_following_as_string" we made above. we use the "NOT IN" 
+	$not_following_array = DB::queryOneColumn('username', "SELECT username FROM users 
+		WHERE username != %s 
+			AND username NOT IN ('" . $people_user_is_following_as_string. "' )", $_SESSION['username']);
 ?>
-
 <div class="container" ng-app="mantaApp">
-	<div class="row" ng-controller="mantaController">
-		<div class="col-sm-8 col-sm-offset-2">
+	<div class="wrapper col-sm-12" ng-controller="mantaController">
+		<div class="container col-sm-12">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+					<div class="row">
+						<h3>Users you are following</h3>
+						<?php foreach($following_array as $user): ?>
+							<div class="col-sm-8"><?php print $user; ?></div>
+							<div class="col-sm-4">
+								<button ng-click="follow('<?php print $user;?>','unfollow')" class="btn btn-danger">Unfollow</button>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			</div>
+		</div>
 
-			<?php foreach($not_following_array as $user): ?>
-				<div class="col-sm-8 username text-center"> <?php print $user['username']; ?></div>
-				<div class="col-sm-4 follow"><button class="btn btn-primary" ng-click="follow('<?php print $user['username']; ?>')">Follow</button></div>
-			<?php endforeach; ?>
-
+		<div class="container col-sm-12">
+			<div class="row">
+				<div class="col-sm-8 col-sm-offset-2">
+					<div class="row">
+						<h3>Users you are not following</h3>
+						<?php foreach($not_following_array as $user): ?>
+							<div class="col-sm-8"><?php print $user; ?></div>
+							<div class="col-sm-4">
+								<button ng-click="follow('<?php print $user;?>','follow')" class="btn btn-primary">Follow</button>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col-sm-8 col-sm-offset-2">
-
-			<?php foreach($following_array as $user): ?>
-				<div class="col-sm-8 username"> <?php print $user['username']; ?></div>
-				<div class="col-sm-4 follow"><button class="btn btn-primary" ng-click="follow('<?php print $user['username']; ?>')">Follow</button></div>
-			<?php endforeach; ?>
-
-		</div>
-	</div>
-
 </div>

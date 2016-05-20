@@ -11,7 +11,7 @@
         <?php 
           if(isset($_SESSION['username'])){
             print '<li id="welcome">Welcome '.$_SESSION['username'].'</li>';
-            print '<li id="post"><a href="post.php">Make a post</a></li>';
+            print '<li id="post"><a href="index.php">Make a post</a></li>';
             print '<li id="logout"><a href="logout.php">Logout</a></li>';
           }else{
             print '<li id="register"><a href="register.php">Register</a></li>';
