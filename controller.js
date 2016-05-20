@@ -20,16 +20,16 @@ mantaApp.controller('mantaController', function($scope, $http){
 
 	$scope.upVote = function(element, vote){
 		//console.log('clicked on upVote');
-		console.log(element);
+		console.dir(element);
 		$http.post('process_vote.php', {
 			voteDirection: 1,
 			idOfPost: element.target.parentElement.id
 		}).then(function successCallback(response){
 			if(vote == 1){
 				if(response.data == 'notLoggedIn'){
-				element.target.nextElementSibling.innerHTML = "You must be logged in to vote!";
+				element.target.parentNode.firstElementChild.innerHTML = "You must be logged in to vote!";
 				}else{
-                element.target.nextElementSibling.innerHTML = response.data;
+                element.target.parentNode.firstElementChild.innerHTML = response.data;
             	}
             }
 			console.log(response.data);
@@ -46,12 +46,12 @@ mantaApp.controller('mantaController', function($scope, $http){
 		}).then(function successCallback(response){
 			if(vote == -1){
 				if(response.data == 'notLoggedIn'){
-					element.target.previousElementSibling.innerHTML = "You must be logged in to vote!";
+					element.target.parentNode.firstElementChild.innerHTML = "You must be logged in to vote!";
 				}else{
-                element.target.previousElementSibling.innerHTML = response.data;
+                element.target.parentNode.firstElementChild.innerHTML = response.data;
             	}
             }
-			console.log(response.data);
+			console.dir(target);
 			$scope.voteTotal = response.data;
 		}, function errorCallback(response){
 			console.log(response);

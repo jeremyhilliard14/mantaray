@@ -92,6 +92,7 @@
 						</div>
 
 						<div class="right-container" id="<?php print $post['id']; ?>">
+							<div class="message"></div>
 							<div class="arrow-up" ng-click="upVote($event, 1)">Upvote</div>
 							<div class="vote-count"><?php print $post['aggregateVotes']; ?></div>
 							<div class="arrow-down" ng-click="downVote($event, -1)">Downvote</div>
