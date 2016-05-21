@@ -2,6 +2,7 @@
 
 	require_once 'includes/head.php';
 	require_once 'includes/header.php';
+	require_once 'includes/db_connect.php';
 
 	session_start();
 	require_once 'includes/meekrodb.2.3.class.php';
