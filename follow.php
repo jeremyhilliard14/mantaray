@@ -4,12 +4,6 @@
 	require_once 'includes/header.php';
 	require_once 'includes/db_connect.php';
 
-	session_start();
-	require_once 'includes/meekrodb.2.3.class.php';
-	DB::$user = 'x';
-	DB::$password = 'x';
-	DB::$dbName = 'mantaray';
-	DB::$host = '127.0.0.1';
 
 	//See Meekrodb for queryOneColumn syntax. It will remove the array inside array and just return a single field (parameter one) in an array. This will give us a list of arrays
 	$following_array = DB::queryOneColumn('poster', "SELECT poster FROM following WHERE follower = %s", $_SESSION['username']);
